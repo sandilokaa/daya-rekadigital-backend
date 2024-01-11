@@ -22,7 +22,7 @@ Ini merupakan challenge yang diberikan oleh Daya Rekadigital
 
 ## **Tech Stack**
 
-  Penggunaan ExpressJs membantu dalam membuat sebuah server, dibantu dengan repository pattern yang memudahkan untuk melakukan debugging. MySQL dipilih karena merupakan database yang umum digunakan pada perusahaan. Untuk mengelola dependency yarn dipilih karena memiliki proses yang sedikit lebih cepat dibanding npm. Dalam pengembangan code github dan vscode untuk membantu melakukan manajemen code.
+  Penggunaan ExpressJs membantu dalam membuat sebuah server, dibantu dengan repository pattern yang memudahkan untuk melakukan debugging. MySQL dipilih karena merupakan database yang umum digunakan pada perusahaan. Untuk mengelola dependency yarn dipilih karena memiliki proses yang sedikit lebih cepat dibanding npm. Dalam pengembangan code github dan vscode untuk membantu melakukan manajemen code. Selain itu, postman digunakan untuk pengembangan dan pengujian API.
 
 
 ## **Endpoint**

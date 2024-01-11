@@ -45,6 +45,42 @@ class TransactionService {
     /* ------------------- End Create New Transaction ------------------- */
 
 
+
+    /* ------------------- Get List Transaction ------------------- */
+
+    static async getListTransaction({ menu, price }){
+
+        try {
+
+            const getedListTransaction = await transactionRepository.getListTransaction({ menu, price });
+
+            return {
+                status: true,
+                status_code: 201,
+                message: "Data displayed successfully",
+                data: {
+                    searchTransactionHandle: getedListTransaction,
+                },
+            };
+            
+        } catch (err) {
+            
+            return {
+                status: false,
+                status_code: 500,
+                message: err.message,
+                data: {
+                    searchTransactionHandle: null,
+                },
+            };
+
+        }
+
+    };
+
+    /* ------------------- End Get List Transaction ------------------- */
+
+
 };
 
 module.exports = TransactionService;

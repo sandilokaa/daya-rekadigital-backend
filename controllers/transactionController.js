@@ -26,4 +26,27 @@ const createNewTransaction = async(req, res) => {
 /* ------------------- End Create New Transaction ------------------- */
 
 
-module.exports = { createNewTransaction };
+
+/* ------------------- Get List Transaction ------------------- */
+
+const getListTransaction = async(req, res) => {
+
+    const { menu, price } = req.query;
+
+    const { status, status_code, message, data} = await transactionService.getListTransaction({
+        menu, 
+        price
+    });
+
+    res.status(status_code).send({
+        status: status,
+        message: message,
+        data: data,
+    });
+
+};
+
+/* ------------------- End Get List Transaction ------------------- */
+
+
+module.exports = { createNewTransaction, getListTransaction };

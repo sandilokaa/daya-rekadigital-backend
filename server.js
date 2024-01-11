@@ -26,6 +26,13 @@ app.post('/api/transactions', transactionController.createNewTransaction);
 // ------ End Create Transaction ------ //
 
 
+// ------ Get List Transaction ------ //
+
+app.get('/api/transactions/search', transactionController.getListTransaction);
+
+// ------ Get List Transaction ------ //
+
+
 // ------------------------- End Define Routes ------------------------- //
 
 
