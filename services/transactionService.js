@@ -23,7 +23,7 @@ class TransactionService {
                 status_code: 201,
                 message: "New transaction created successfully",
                 data: {
-                    createdNewTransaction: createdNewTransaction,
+                    transactionHandler: createdNewTransaction,
                 },
             };
             
@@ -34,7 +34,7 @@ class TransactionService {
                 status_code: 500,
                 message: err.message,
                 data: {
-                    createdNewTransaction: null,
+                    transactionHandler: null,
                 },
             };
             
