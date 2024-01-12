@@ -48,11 +48,11 @@ class TransactionService {
 
     /* ------------------- Get List Transaction ------------------- */
 
-    static async getListTransaction({ menu, price }){
+    static async getListTransaction({ menu, price, name }){
 
         try {
 
-            const getedListTransaction = await transactionRepository.getListTransaction({ menu, price });
+            const getedListTransaction = await transactionRepository.getListTransaction({ menu, price, name });
 
             return {
                 status: true,

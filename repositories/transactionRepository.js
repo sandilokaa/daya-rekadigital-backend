@@ -32,26 +32,32 @@ class TransactionRepository {
 
     /* ------------------- Get List Transaction ------------------- */
 
-    static async getListTransaction({ menu, price }) {
+    static async getListTransaction({ menu, price, name }) {
+        let query = 'SELECT Transaction.*, Customer.name AS customer_name FROM Transaction';
+        query += ' LEFT JOIN Customer ON Transaction.customer_id = Customer.id';
+        query += ' WHERE 1';
 
-            let query = 'SELECT * FROM Transaction WHERE 1';
-    
-            const values = [];
-            
-            if (menu) {
-                query += ' AND menu = ?';
-                values.push(menu);
-            }
+        const values = [];
 
-            if (price) {
-                query += ' AND price = ?';
-                values.push(price);
-            }
-    
-            const [transactions] = await pool.promise().query(query, values);
-    
-            return transactions;
-    };
+        if (menu) {
+            query += ' AND Transaction.menu = ?';
+            values.push(menu);
+        }
+
+        if (price) {
+            query += ' AND Transaction.price = ?';
+            values.push(price);
+        }
+
+        if (name) {
+            query += ' AND Customer.name LIKE ?';
+            values.push(name);
+        }
+
+        const [transactions] = await pool.promise().query(query, values);
+
+        return transactions;
+    }
 
     /* ------------------- End Get List Transaction ------------------- */
 

@@ -31,11 +31,12 @@ const createNewTransaction = async(req, res) => {
 
 const getListTransaction = async(req, res) => {
 
-    const { menu, price } = req.query;
+    const { menu, price, name } = req.query;
 
     const { status, status_code, message, data} = await transactionService.getListTransaction({
         menu, 
-        price
+        price,
+        name
     });
 
     res.status(status_code).send({
