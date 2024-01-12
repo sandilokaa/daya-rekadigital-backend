@@ -22,7 +22,7 @@ Ini merupakan challenge yang diberikan oleh Daya Rekadigital
 
 ## **Tech Stack**
 
-  Penggunaan ExpressJs membantu dalam membuat sebuah server, dibantu dengan repository pattern yang memudahkan untuk melakukan debugging. MySQL dipilih karena merupakan database yang umum digunakan pada perusahaan. Untuk mengelola dependency yarn dipilih karena memiliki proses yang sedikit lebih cepat dibanding npm. Dalam pengembangan code github dan vscode untuk membantu melakukan manajemen code. Selain itu, postman digunakan untuk pengembangan dan pengujian API.
+  Penggunaan ExpressJs membantu dalam membuat sebuah server, dibantu dengan repository pattern yang memudahkan untuk melakukan debugging. MySQL dipilih karena merupakan database yang umum digunakan pada perusahaan. Untuk mengelola dependency yarn dipilih karena memiliki proses yang sedikit lebih cepat dibanding npm. Dalam pengembangan code github dan vscode untuk membantu melakukan manajemen code. Selain itu, postman digunakan untuk pengembangan dan pengujian API. Hal yang perlu diperhatikan jika terdapat banyak data, saya menggunakan asynchronous processing agar tidak terlalu membebani server. 
 
 
 ## **Endpoint**
@@ -78,3 +78,36 @@ Ini merupakan challenge yang diberikan oleh Daya Rekadigital
 
 ### **Get List Transaction**
 
+  ---
+
+  GET
+
+  **Example**
+
+  ```
+  http://localhost:8080/api/transactions/search?menu=Bakmi&price=15000&name=Loka
+  ```
+
+  **Response**
+
+  ```
+  {
+    "status": true,
+    "message": "Data displayed successfully",
+    "data": {
+        "searchTransactionHandle": [
+            {
+                "id": 9,
+                "customer_id": 2,
+                "menu": "Bakmi",
+                "price": 15000,
+                "qty": 1,
+                "payment": "Cash",
+                "total": 15000,
+                "created_at": "2024-01-11T21:38:15.000Z",
+                "customer_name": "Loka"
+            }
+        ]
+    }
+  }
+  ```
